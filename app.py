@@ -5,15 +5,15 @@ from split_pdf import split_pdfs
 def main():
     st.title("PDF Processing App")
 
-    action = st.selectbox("Select an action:", ["Split", "Combine"])
+    action = st.radio("Select an action:", ["Split PDF", "Combine PDF"])
 
-    if action == "Split":
+    if action == "Split PDF":
         st.write("Split PDF files")
         split_pdfs()
 
-    elif action == "Combine":
+    elif action == "Combine PDF":
         st.write("Combine PDF files")
-        combine_pdfs()
+        uploaded_files = st.file_uploader("Choose PDF files to combine", type=["pdf"], accept_multiple_files=True)
 
 if __name__ == "__main__":
     main()
