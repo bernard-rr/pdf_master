@@ -71,9 +71,6 @@ def split_pdf(input_file, num_intervals=1, start_page=None, start_line=None):
             start_index = end_index + 1
 
 def split_pdfs():
-    # Streamlit app
-    st.title("PDF Splitting Tool")
-
     # File upload
     uploaded_file = st.file_uploader("Upload PDF file", type=["pdf"])
 
