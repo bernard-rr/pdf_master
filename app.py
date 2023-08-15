@@ -3,7 +3,7 @@ from combine_pdf import combine_pdfs
 from split_pdf import split_pdfs
 
 def main():
-    st.title("PDF Processing App")
+    st.title("PDF Master")
 
     action = st.radio("Select an action:", ["Split PDF", "Combine PDF"])
 
