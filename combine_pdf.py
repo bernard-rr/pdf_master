@@ -18,7 +18,6 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
     return href
 
 def combine_pdfs():
-    st.title("PDF Combiner App")
     st.write("Upload multiple PDF files and combine them into a single PDF.")
 
     uploaded_files = st.file_uploader("Choose PDF files to combine", type=["pdf"], accept_multiple_files=True)
