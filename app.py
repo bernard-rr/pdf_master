@@ -13,11 +13,8 @@ def main():
 
     elif action == "Combine PDF":
         st.write("Combine PDF files")
-        uploaded_files = st.file_uploader("Choose PDF files to combine", type=["pdf"], accept_multiple_files=True)
-        if uploaded_files:
-            combined_pdf_path, combined_zip_path = combine_pdfs()
-            st.success("PDFs successfully combined. Click the links below to download:")
-            st.markdown(f"[Download Combined PDFs as Zip]({combined_zip_path})")
+        combine_pdfs()
+
 
 if __name__ == "__main__":
     main()

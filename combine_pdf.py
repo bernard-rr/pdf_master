@@ -50,8 +50,3 @@ def combine_pdfs():
         # Remove the temporary files
         os.remove(output_pdf)
         os.remove(zip_folder)
-
-        combined_pdf_path = os.path.abspath(output_pdf)
-        combined_zip_path = os.path.abspath(zip_folder)
-
-        return combined_pdf_path, combined_zip_path
