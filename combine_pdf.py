@@ -1,11 +1,11 @@
-from PyPDF2 import PdfFileMerger
+from PyPDF2 import PdfMerger
 import os
 import zipfile
 import base64
 import streamlit as st
 
 def merge_pdfs(pdf_list):
-    merger = PdfFileMerger()
+    merger = PdfMerger()
     for pdf_file in pdf_list:
         merger.append(pdf_file)
     return merger
