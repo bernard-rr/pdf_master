@@ -72,7 +72,7 @@ def split_pdf(input_file, num_intervals=1, start_page=None, start_line=None):
 
 def split_pdfs():
     # File upload
-    uploaded_file = st.file_uploader("Upload PDF file", type=["pdf"])
+    uploaded_file = st.file_uploader("Choose PDF files to split", type=["pdf"])
 
     if uploaded_file is not None:
         with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
