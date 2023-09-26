@@ -2,7 +2,7 @@
 
 Welcome to PDF Master! This is a Python application built with Streamlit that allows you to perform two main operations on PDF files: splitting and combining. With PDF Master, you can easily manage your PDF files by breaking them into smaller parts or merging multiple PDFs into a single file.
 
-Live Deployment: [PDF Master](https://pdfmaster.streamlit.app/)
+**Live Deployment**: [PDF Master](https://pdfmaster.streamlit.app/)
 
 ## Table of Contents
 
