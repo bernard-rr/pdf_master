@@ -14,7 +14,7 @@ def main():
     feedback_link = f"[Send me feedback](mailto:{email}?subject={subject})"
     st.markdown(feedback_link)
 
-    action = st.radio("Select an action:", ["Split PDF", "Combine PDF"])
+    action = st.radio("Select an action:", ["Split PDF", "Combine PDF", "Convert Image to PDF"])
 
     if action == "Split PDF":
         st.write("Split PDF files")
