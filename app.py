@@ -1,6 +1,7 @@
 import streamlit as st
 from combine_pdf import combine_pdfs
 from split_pdf import split_pdfs
+from image_to_pdf import convert_image_to_pdf
 import urllib.parse
 
 def main():
@@ -22,6 +23,10 @@ def main():
     elif action == "Combine PDF":
         st.write("Combine PDF files")
         combine_pdfs()
+
+    elif action == "Convert Image to PDF":
+        st.write("Convert Image to PDF")
+        convert_image_to_pdf()
 
 
 if __name__ == "__main__":
