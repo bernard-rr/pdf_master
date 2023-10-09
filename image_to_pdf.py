@@ -3,8 +3,9 @@ from PIL import Image
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import tempfile
+import zipfile
 from utils import get_binary_file_downloader_html
-
+import os
 
 def image_to_pdf(uploaded_image, output_pdf_path):
     # Save the uploaded image to a temporary file
@@ -23,13 +24,25 @@ def image_to_pdf(uploaded_image, output_pdf_path):
     # Save the PDF file
     c.save()
 
-def convert_image_to_pdf():
+def convert_images_to_pdf(images):
+    pdf_files = []
 
-    uploaded_image = st.file_uploader("Choose an image to convert to PDF", type=["jpg", "jpeg", "png"])
+    # Create a temporary directory for storing PDFs
+    temp_dir = tempfile.mkdtemp()
 
-    if uploaded_image:
-        output_pdf_path = "image_to_pdf.pdf"
-        image_to_pdf(uploaded_image, output_pdf_path)
+    for image in images:
+        image_name = image.name
+        pdf_name = os.path.splitext(image_name)[0] + ".pdf"
+        output_pdf_path = os.path.join(temp_dir, pdf_name)
 
-        st.success("Image successfully converted to PDF. Click the link below to download the PDF:")
-        st.markdown(get_binary_file_downloader_html(output_pdf_path, 'Download PDF'), unsafe_allow_html=True)
+        # Convert each image to PDF
+        image_to_pdf(image, output_pdf_path)
+        pdf_files.append(output_pdf_path)
+
+    # Create a zip folder and add the PDFs to it
+    zip_folder = os.path.join(temp_dir, "converted_pdfs.zip")
+    with zipfile.ZipFile(zip_folder, 'w', zipfile.ZIP_DEFLATED) as zip_file:
+        for pdf_file in pdf_files:
+            zip_file.write(pdf_file, os.path.basename(pdf_file))
+
+    return zip_folder
