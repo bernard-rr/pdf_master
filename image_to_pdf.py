@@ -3,6 +3,8 @@ from PIL import Image
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import tempfile
+from utils import get_binary_file_downloader_html
+
 
 def image_to_pdf(uploaded_image, output_pdf_path):
     # Save the uploaded image to a temporary file

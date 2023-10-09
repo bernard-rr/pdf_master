@@ -3,6 +3,8 @@ from combine_pdf import combine_pdfs
 from split_pdf import split_pdfs
 from image_to_pdf import convert_image_to_pdf
 import urllib.parse
+from utils import get_binary_file_downloader_html
+
 
 def main():
     st.title("PDF Master")
