@@ -26,9 +26,9 @@ def main():
         st.write("Combine PDF files")
         combine_pdfs()
 
-    elif action == "Convert Image to PDF":
-        st.write("Convert Image to PDF")
-        convert_image_to_pdf()
+    elif action == "Convert Images to PDF":
+        st.write("Convert Images to PDF")
+        convert_images_to_pdf()
 
 
 if __name__ == "__main__":
