@@ -1,6 +1,6 @@
 # PDF Master
 
-Welcome to PDF Master! This is a Python application built with Streamlit that allows you to perform two main operations on PDF files: splitting and combining. With PDF Master, you can easily manage your PDF files by breaking them into smaller parts or merging multiple PDFs into a single file.
+Welcome to PDF Master! This is a Python application built with Streamlit that allows you to perform three main operations on PDF files: splitting, combining, and converting images to PDFs. With PDF Master, you can easily manage your PDF files by breaking them into smaller parts, merging multiple PDFs into a single file, and converting images to PDF format.
 
 **Live Deployment**: [PDF Master](https://pdfmaster.streamlit.app/)
 
@@ -11,6 +11,7 @@ Welcome to PDF Master! This is a Python application built with Streamlit that al
 - [Usage](#usage)
   - [Split PDF](#split-pdf)
   - [Combine PDF](#combine-pdf)
+  - [Convert Images to PDF](#convert-images-to-pdf)
 - [Live Demo](#live-demo)
 - [Requirements](#requirements)
 - [Contact](#contact)
@@ -23,6 +24,7 @@ PDF Master provides the following features:
 
 - **Split PDF**: Divide a PDF file into multiple smaller PDF files based on the number of pages per file or specify a starting page and line for title extraction.
 - **Combine PDF**: Merge multiple PDF files into a single PDF and download them as a zip folder.
+- **Convert Images to PDF**: Convert multiple images (JPEG, PNG) into a PDF and download them as a zip folder.
 
 ---
 
@@ -91,6 +93,26 @@ To use this feature:
 
 5. Once the merging is complete, you can download the combined PDFs as a zip folder using the "Download Combined PDFs" link.
 
+### Convert Images to PDF
+
+The "Convert Images to PDF" feature allows you to convert multiple images (JPEG, PNG) into a PDF.
+
+To use this feature:
+
+1. Run the `app.py` file:
+
+   ```bash
+   streamlit run app.py
+   ```
+
+2. Select "Convert Images to PDF" from the options.
+
+3. Upload one or more images (JPEG, PNG) that you want to convert to PDF.
+
+4. The images will be converted to PDF format, and a zip folder containing the PDFs will be created.
+
+5. Once the conversion is complete, you can download the converted PDFs as a zip folder using the provided link.
+
 ---
 
 ## Live Demo
@@ -105,6 +127,7 @@ The following Python packages are required to run PDF Master:
 
 - `streamlit`
 - `PyPDF2`
+- `Pillow`
 
 You can install these packages by running the following command:
 
@@ -121,3 +144,5 @@ For feedback and inquiries, please feel free to reach out to the project owner:
 - Email: [bernardchidi5@gmail.com](mailto:bernardchidi5@gmail.com?subject=Feedback%20on%20PDF%20Master%20App)
 
 Enjoy using PDF Master for managing your PDF files!
+
+```
