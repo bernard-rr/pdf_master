@@ -15,10 +15,14 @@ def image_to_pdf(uploaded_image, output_pdf_path):
     c.drawImage(temp_image.name, 0, 0, img.width, img.height)
     c.save()
 
-def convert_images_to_pdf(images):
+def convert_images_to_pdf():
     uploaded_images = st.file_uploader("Choose images to convert to PDF", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
-    pdf_files = []
+    if not uploaded_images:
+        st.warning("No images selected. Please upload one or more images.")
+        return
 
+    pdf_files = []
+    
     for uploaded_image in uploaded_images:
         image_name = uploaded_image.name
         output_pdf_path = f"{os.path.splitext(image_name)[0]}.pdf"
@@ -33,8 +37,5 @@ def convert_images_to_pdf(images):
             zip_file.write(pdf_file, os.path.basename(pdf_file))
 
     st.success("Images successfully converted to PDFs. Click the link below to download the ZIP:")
-    st.markdown(f'[Download ZIP]({zip_folder})')
-
-if __name__ == '__main__':
-    st.title("Image to PDF Converter")
-    convert_images_to_pdf([])
+    st.markdown(get_binary_file_downloader_html(zip_folder, 'Download ZIP'), unsafe_allow_html=True)
+    return zip_folder

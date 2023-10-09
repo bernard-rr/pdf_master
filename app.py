@@ -28,7 +28,7 @@ def main():
 
     elif action == "Convert Images to PDF":
         st.write("Convert Images to PDF")
-        convert_images_to_pdf(uploaded_images)
+        convert_images_to_pdf()
 
 if __name__ == "__main__":
     main()
