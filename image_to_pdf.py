@@ -17,10 +17,9 @@ def image_to_pdf(uploaded_image, output_pdf_path):
 
 def convert_images_to_pdf(images):
     uploaded_images = st.file_uploader("Choose images to convert to PDF", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
-    
     pdf_files = []
-    
-    for uploaded_image in images:
+
+    for uploaded_image in uploaded_images:
         image_name = uploaded_image.name
         output_pdf_path = f"{os.path.splitext(image_name)[0]}.pdf"
         image_to_pdf(uploaded_image, output_pdf_path)
@@ -34,13 +33,8 @@ def convert_images_to_pdf(images):
             zip_file.write(pdf_file, os.path.basename(pdf_file))
 
     st.success("Images successfully converted to PDFs. Click the link below to download the ZIP:")
-    st.markdown(get_binary_file_downloader_html(zip_folder, 'Download ZIP'), unsafe_allow_html=True)
-    return zip_folder
+    st.markdown(f'[Download ZIP]({zip_folder})')
 
-# if __name__ == "__main__":
-#     uploaded_images = st.file_uploader("Choose images to convert to PDF", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
-    
-#     if uploaded_images:
-#         zip_folder = convert_images_to_pdf(uploaded_images)
-#         st.success("Images successfully converted to PDFs. Click the link below to download the ZIP:")
-#         st.markdown(get_binary_file_downloader_html(zip_folder, 'Download ZIP'), unsafe_allow_html=True)
+if __name__ == '__main__':
+    st.title("Image to PDF Converter")
+    convert_images_to_pdf([])
