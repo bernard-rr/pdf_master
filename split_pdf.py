@@ -8,6 +8,7 @@ import sys
 import subprocess
 
 
+
 def extract_title(page, line):
     """
     Extracts the text of a specific line from a page.

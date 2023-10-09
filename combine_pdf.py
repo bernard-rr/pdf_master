@@ -3,6 +3,7 @@ import os
 import zipfile
 import base64
 import streamlit as st
+from utils import get_binary_file_downloader_html
 
 def merge_pdfs(pdf_list):
     merger = PdfMerger()
@@ -10,12 +11,12 @@ def merge_pdfs(pdf_list):
         merger.append(pdf_file)
     return merger
 
-def get_binary_file_downloader_html(bin_file, file_label='File'):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    bin_str = base64.b64encode(data).decode()
-    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">{file_label}</a>'
-    return href
+# def get_binary_file_downloader_html(bin_file, file_label='File'):
+#     with open(bin_file, 'rb') as f:
+#         data = f.read()
+#     bin_str = base64.b64encode(data).decode()
+#     href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">{file_label}</a>'
+#     return href
 
 def combine_pdfs():
     st.write("Upload multiple PDF files and combine them into a single PDF.")
