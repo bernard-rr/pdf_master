@@ -5,6 +5,7 @@ from reportlab.pdfgen import canvas
 import tempfile
 import zipfile
 import os
+from utils import get_binary_file_downloader_html
 
 def image_to_pdf(uploaded_image, output_pdf_path):
     with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as temp_image:
